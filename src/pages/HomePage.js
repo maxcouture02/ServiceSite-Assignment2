@@ -23,16 +23,15 @@ const HomePage = ({ onSelectService }) => {
       <Row className="my-5 p-4 rounded hero-section align-items-center animate-on-scroll">
         <Col md={7}>
           <h1>Fast & Reliable Bike Care</h1>
-          <p className="lead">
+          <p className="lead hero-content-wrapper">
             Whether you need a quick fix to get back on your commute or a full tune-up for weekend adventures, Urban Wheel has you covered. Easy online booking, expert service.
           </p>
           <Button variant="primary" className="btn-accent-blue btn-lg" onClick={() => navigate('/services')}>
             Explore All Services
           </Button>
         </Col>
-        <Col md={5} className="d-none d-md-block text-center">
+        <Col md={5} className="d-none d-md-block text-center hero-content-wrapper">
             <img src="/images/hero-illustration.png" alt="Cycling illustration" className="img-fluid" style={{maxHeight: '300px'}}/>
-            {/* Placeholder for a friendly illustration */}
         </Col>
       </Row>
 

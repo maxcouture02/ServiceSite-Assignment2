@@ -2,6 +2,7 @@
 :root {
   --logo-dark-teal: #0B4F6C;
   --logo-light-teal: #01BAEF;
+  --logo-light-teal-rgb: 107, 173, 225;
   --logo-orange: #FF7F00;
   --logo-yellow: #FFC800;
   --global-bg: #FDFEFF; /* Very light, slightly cool off-white */
@@ -84,7 +85,7 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 .navbar {
-  background-color: var(--logo-dark-teal); /* Use the main dark teal from logo */
+  background-color: #295f76; /* Use the main dark teal from logo */
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -320,22 +321,69 @@ body {
 }
 
 /* Hero Section */
+.hero-content-wrapper { /* This div would sit inside .hero-section */
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Very subtle light background for the wrapper */
+    backdrop-filter: blur(8px) saturate(120%); /* Adjust blur and saturate values */
+    -webkit-backdrop-filter: blur(8px) saturate(120%); /* For Safari */
+    border-radius: 0.25rem; /* Optional rounded corners for the content area */
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+}
+
 .hero-section {
-    background-color: #E9F1F4; /* A very light, cool gray, complementing teal */
-    padding: 3rem 1.5rem;
+    /* background-color: #E9F1F4; */ /* Remove or comment out old background-color */
+    padding: 4rem 1.5rem; /* Increased padding for more space */
     margin-bottom: 2rem;
     border-radius: 0.3rem;
+    position: relative; /* Needed for the ::before pseudo-element overlay */
+    background-image: url('/images/hero-background.jpg'); /* <<< YOUR IMAGE PATH HERE */
+    background-size: cover; /* Cover the entire area */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat;
+    color: var(--text-light); /* Change default text color in hero to light for dark overlays */
+    overflow: hidden; /* Ensure pseudo-element doesn't overflow if it has rounded corners */
+    display: flex; /* To center the content wrapper perhaps */
+    align-items: center;
+    justify-content: center;
 }
-.hero-section h1 {
-    color: var(--logo-dark-teal); /* Dark Teal for hero heading */
+
+.hero-section::before { /* The overlay */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(var(--logo-light-teal-rgb, 11, 79, 108), 0.65); /* Dark Teal overlay with 65% opacity */
+    /* Or a darker generic overlay: background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    border-radius: inherit; /* Inherit border-radius from parent .hero-section */
+    z-index: 1; /* Place overlay above background image but below content */
 }
+
+/* Ensure content (text, buttons) is above the overlay */
+.hero-section > * { /* Target direct children */
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1, .hero-section .lead {
+  color: var(--text-light); /* Text might be dark again if the frosted area is light enough */
+  /* Or keep light text if the backdrop is still generally dark */
+}
+
 .hero-section .lead {
-    color: #3A506B; /* A softer, desaturated blue/gray for lead text */
+    /* color: #3A506B; */ /* Old color */
+    color: #EAEAEA; /* Light gray or off-white for lead text */
+    font-weight: 400; /* Ensure it's not too bold if the heading is very bold */
 }
-.hero-section .btn-primary { /* Ensure hero button uses primary color */
-    background-color: var(--logo-orange); /* Orange for the main CTA in hero */
+
+.hero-section .btn-primary { /* Hero button - ensure it stands out */
+    background-color: var(--logo-orange);
     border-color: var(--logo-orange);
-    color: var(--text-light);
+    color: var(--text-light); /* Or var(--text-dark) if orange is light enough */
 }
 .hero-section .btn-primary:hover {
     background-color: #E07000;
