@@ -1,0 +1,362 @@
+/* Global Styles & Theme with Logo Colors */
+:root {
+  --logo-dark-teal: #0B4F6C;
+  --logo-light-teal: #01BAEF;
+  --logo-orange: #FF7F00;
+  --logo-yellow: #FFC800;
+  --global-bg: #FDFEFF; /* Very light, slightly cool off-white */
+  --text-dark: #212529;
+  --text-light: #FFFFFF;
+  --border-light: #DEE2E6;
+}
+
+body {
+  font-family: 'system-ui', -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+  background-color: var(--global-bg);
+  color: var(--text-dark);
+}
+
+/* Primary Accent (Dark Teal) */
+.accent-primary {
+  color: var(--logo-dark-teal) !important;
+}
+.bg-accent-primary {
+  background-color: var(--logo-dark-teal) !important;
+  border-color: var(--logo-dark-teal) !important;
+  color: var(--text-light) !important;
+}
+.btn-accent-primary {
+  background-color: var(--logo-dark-teal);
+  border-color: var(--logo-dark-teal);
+  color: var(--text-light);
+}
+.btn-accent-primary:hover {
+  background-color: #083E54; /* Darken a bit */
+  border-color: #083E54;
+  color: var(--text-light);
+}
+
+/* Secondary Accent (Orange) */
+.accent-secondary {
+  color: var(--logo-orange) !important;
+}
+.bg-accent-secondary {
+  background-color: var(--logo-orange) !important;
+  border-color: var(--logo-orange) !important;
+  color: var(--text-light) !important; /* Orange can sometimes take dark text too, but light for consistency */
+}
+.btn-accent-secondary {
+  background-color: var(--logo-orange);
+  border-color: var(--logo-orange);
+  color: var(--text-light);
+}
+.btn-accent-secondary:hover {
+  background-color: #E07000; /* Darken a bit */
+  border-color: #E07000;
+  color: var(--text-light);
+}
+
+/* Highlight Accent (Light Teal) */
+.accent-highlight {
+  color: var(--logo-light-teal) !important;
+}
+.text-highlight { /* For text links or specific text highlights */
+  color: var(--logo-light-teal) !important;
+}
+.text-highlight:hover {
+  color: #019ccd !important; /* Darken slightly for hover */
+}
+
+/* Yellow for specific, sparing highlights if needed */
+.accent-yellow {
+  color: var(--logo-yellow) !important;
+}
+
+
+/* Header */
+.navbar-brand-logo {
+  height: 40px; /* Adjust as needed */
+  margin-right: 10px;
+}
+.navbar {
+  background-color: var(--logo-dark-teal); /* Use the main dark teal from logo */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.navbar .navbar-brand, .navbar .nav-link {
+  color: var(--text-light) !important;
+}
+.navbar .nav-link:hover, .navbar .nav-link.active {
+  color: var(--logo-orange) !important; /* Orange for hover/active link in header */
+}
+
+/* Footer */
+.footer {
+  background-color: #07374B; /* A slightly darker shade of the dark teal for footer */
+  color: #EAEAEA; /* Light grey text for footer */
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+.footer h5 {
+    color: var(--text-light);
+}
+.footer a {
+  color: var(--logo-light-teal); /* Light teal for links in footer */
+}
+.footer a:hover {
+  color: var(--logo-orange);
+}
+
+/* Cards */
+.service-card, .package-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid var(--border-light);
+  border-radius: 0.3rem;
+}
+.service-card:hover, .package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.service-card .card-title, .package-card .card-title {
+  color: var(--logo-dark-teal); /* Dark Teal for card titles */
+}
+
+.service-card.highlighted { /* For James's quick pick style */
+  border: 2px solid var(--logo-orange); 
+}
+.service-card .btn-primary, .package-card .btn-primary { /* Ensure buttons inside cards use primary accent */
+    background-color: var(--logo-dark-teal);
+    border-color: var(--logo-dark-teal);
+    color: var(--text-light);
+}
+.service-card .btn-primary:hover, .package-card .btn-primary:hover {
+    background-color: #083E54;
+    border-color: #083E54;
+}
+.service-card .btn-outline-secondary { /* For "Learn More" */
+    color: var(--logo-orange);
+    border-color: var(--logo-orange);
+}
+.service-card .btn-outline-secondary:hover {
+    background-color: var(--logo-orange);
+    color: var(--text-light);
+}
+
+/* Styling for the Quick Service cards on the ServicesPage "Quick Repairs" tab */
+.quick-service-item-card { /* A specific class for these cards */
+  height: 100%; /* Ensure cards in a row take up same height if content varies */
+  border: 1px solid var(--border-light);
+  background-color: var(--text-light);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-service-item-card:hover,
+.quick-service-item-card:focus-within { /* focus-within is great for when the button inside is focused */
+  background-color: var(--quick-service-card-hover-bg);
+  border-color: var(--quick-service-card-hover-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.quick-service-item-card .card-title {
+  color: var(--logo-dark-teal);
+}
+
+/* Button styling within these quick service cards */
+.quick-service-item-card .btn-accent-primary { /* Target the specific primary button style we are using */
+  background-color: var(--logo-dark-teal);
+  border-color: var(--logo-dark-teal);
+  color: var(--text-light);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-service-item-card:hover .btn-accent-primary,
+.quick-service-item-card .btn-accent-primary:hover,
+.quick-service-item-card .btn-accent-primary:focus {
+  background-color: var(--logo-orange); /* Change button to orange on card hover or button hover/focus */
+  border-color: var(--logo-orange);
+  color: var(--text-light);
+}
+
+/* Styling for the clickable package list items on ServicesPage */
+.package-list-item { /* Add a new base class for these items */
+  background-color: var(--text-light); /* Default background for non-selected */
+  border: 1px solid var(--border-light); /* Default border */
+  color: var(--text-dark); /* Default text color */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; /* Smooth transitions */
+}
+
+.package-list-item:hover {
+  background-color: #f0f8ff; /* Light hover, AliceBlue or similar */
+  border-color: var(--logo-light-teal);
+}
+
+.package-list-item.selected { /* New class for the selected state */
+  background-color: var(--logo-dark-teal) !important; /* Dark teal background */
+  color: var(--text-light) !important; /* White text */
+  border: 1px solid var(--selected-package-border) !important; /* Orange border for selected */
+  box-shadow: 0 0 0 2px var(--selected-package-border); /* Optional: extra glow effect */
+}
+
+/* Ensure text elements within the selected package list item are also light */
+.package-list-item.selected h5,
+.package-list-item.selected p,
+.package-list-item.selected small, /* Target small specifically */
+.package-list-item.selected strong {
+  color: var(--text-light) !important;
+}
+
+
+/* Booking Page specific */
+.time-slot-btn {
+  margin: 5px;
+  border: 1px solid var(--logo-dark-teal);
+  color: var(--logo-dark-teal);
+  background-color: var(--text-light); /* Ensure it's not transparent */
+}
+.time-slot-btn.active, .time-slot-btn:active {
+  background-color: var(--logo-dark-teal);
+  color: var(--text-light) !important; 
+}
+.time-slot-btn:hover:not(.active) {
+  background-color: #E07000; /* A very light teal for hover */
+  border-color: var(--logo-light-teal);
+}
+
+.calendar-container input[type="date"] {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.25rem;
+}
+
+/* Confirmation Page */
+.confirmation-card {
+  background-color: var(--text-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin-top: 2rem;
+  border-top: 5px solid var(--logo-orange); /* Orange top border for confirmation */
+}
+.confirmation-card h2 {
+  color: var(--logo-dark-teal); /* Dark Teal for "Booking Confirmed!" */
+}
+.confirmation-card .bi-check-circle-fill { /* Green checkmark */
+    fill: #28a745;
+}
+.map-snippet img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* General button styling consistency */
+.btn {
+  border-radius: 0.3rem; 
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+/* Primary button for general CTAs */
+.btn-primary { /* Overriding Bootstrap's default blue */
+    background-color: var(--logo-dark-teal);
+    border-color: var(--logo-dark-teal);
+    color: var(--text-light);
+}
+.btn-primary:hover {
+    background-color: #083E54;
+    border-color: #083E54;
+    color: var(--text-light);
+}
+/* Secondary button style (e.g., "View My Appointments" on confirmation) */
+.btn-outline-secondary.text-highlight { /* To make it clearer it's a different style */
+    color: var(--logo-light-teal);
+    border-color: var(--logo-light-teal);
+}
+.btn-outline-secondary.text-highlight:hover {
+    background-color: var(--logo-light-teal);
+    color: var(--text-light);
+}
+
+
+/* Placeholder for bike details */
+.bike-details-placeholder {
+  border: 1px dashed var(--logo-light-teal); 
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  background-color: #E0F7FA; /* Very light teal background */
+}
+.bike-details-placeholder h5 {
+  color: var(--logo-dark-teal); 
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #E9F1F4; /* A very light, cool gray, complementing teal */
+    padding: 3rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0.3rem;
+}
+.hero-section h1 {
+    color: var(--logo-dark-teal); /* Dark Teal for hero heading */
+}
+.hero-section .lead {
+    color: #3A506B; /* A softer, desaturated blue/gray for lead text */
+}
+.hero-section .btn-primary { /* Ensure hero button uses primary color */
+    background-color: var(--logo-orange); /* Orange for the main CTA in hero */
+    border-color: var(--logo-orange);
+    color: var(--text-light);
+}
+.hero-section .btn-primary:hover {
+    background-color: #E07000;
+    border-color: #E07000;
+}
+
+
+/* Package Detail specific (ServicesPage) */
+.package-detail-card {
+    border-left: 5px solid var(--logo-orange); /* Orange accent for the detail card */
+}
+.package-detail-card .card-header {
+    background-color: var(--logo-dark-teal); /* Dark teal header for package detail */
+    color: var(--text-light);
+}
+.package-detail-card h5.accent-secondary { /* Price */
+    color: var(--logo-orange) !important; 
+    font-weight: bold;
+}
+.package-detail-card .text-highlight { /* For the "Saturday & Sunday slots..." note */
+    color: var(--logo-light-teal) !important;
+}
+
+
+/* Tabs on Services Page */
+.nav-tabs .nav-link {
+    color: var(--logo-dark-teal);
+    border-bottom-color: transparent;
+}
+.nav-tabs .nav-link.active {
+    color: var(--logo-orange);
+    border-color: var(--border-light) var(--border-light) var(--logo-orange) !important; /* Bottom border orange */
+    font-weight: 500;
+}
+.nav-tabs .nav-link:hover {
+    border-color: var(--border-light) var(--border-light) var(--logo-light-teal) !important;
+    color: var(--logo-light-teal);
+}
+
+
+/* Ensure selected service in list (ServicesPage) has good contrast */
+div[onClick*="handleSelectForDetail"].bg-accent-primary {
+    background-color: var(--logo-dark-teal) !important;
+    color: var(--text-light) !important;
+}
+div[onClick*="handleSelectForDetail"].bg-accent-primary h5,
+div[onClick*="handleSelectForDetail"].bg-accent-primary p,
+div[onClick*="handleSelectForDetail"].bg-accent-primary strong {
+    color: var(--text-light) !important;
+}
