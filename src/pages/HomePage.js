@@ -20,18 +20,32 @@ const HomePage = ({ onSelectService }) => {
   return (
     <Container>
       {/* Hero Section - Inspired by Jennifer's welcoming feel */}
-      <Row className="my-5 p-4 rounded hero-section align-items-center animate-on-scroll">
-        <Col md={7}>
-          <h1>Fast & Reliable Bike Care</h1>
-          <p className="lead hero-content-wrapper">
-            Whether you need a quick fix to get back on your commute or a full tune-up for weekend adventures, Urban Wheel has you covered. Easy online booking, expert service.
-          </p>
-          <Button variant="primary" className="btn-accent-blue btn-lg" onClick={() => navigate('/services')}>
-            Explore All Services
-          </Button>
+       <Row 
+        className="my-5 p-sm-2 p-md-4 rounded hero-section align-items-center animate-on-scroll"
+        // style={{ backgroundImage: `url(/images/hero-background.jpg)` }} // Assuming this is in App.css now
+      >
+        <Col md={7} className="hero-text-content mb-4 mb-md-0"> {/* Added a class for easier targeting if needed */}
+          <div className="hero-content-wrapper p-4"> {/* Frosted glass for text */}
+            <h1 className="mb-3">Fast & Reliable Bike Care</h1>
+            <p className="lead mb-4">
+              Whether you need a quick fix to get back on your commute or a full tune-up for weekend adventures, Urban Wheel has you covered. Easy online booking, expert service.
+            </p>
+            <Button variant="primary" className="btn-lg" onClick={() => navigate('/services')}>
+              Explore All Services
+            </Button> {/* Removed btn-accent-blue if hero button style is different */}
+          </div>
         </Col>
-        <Col md={5} className="d-none d-md-block text-center hero-content-wrapper">
-            <img src="/images/hero-illustration.png" alt="Cycling illustration" className="img-fluid" style={{maxHeight: '300px'}}/>
+
+        <Col md={5} className="d-none d-md-flex align-items-center justify-content-center"> {/* Use flex to center inner div */}
+          {/* Inner div to control the width of the frosted glass for the image */}
+          <div className="hero-content-wrapper p-3 d-inline-block"> {/* p-3 for padding inside glass, d-inline-block to shrink-wrap */}
+            <img 
+              src="/images/hero-illustration.png" 
+              alt="Cycling illustration" 
+              className="img-fluid" // img-fluid makes it responsive
+              style={{ maxHeight: '300px', display: 'block' }} // display: block to remove extra space below image if d-inline-block on parent
+            />
+          </div>
         </Col>
       </Row>
 
