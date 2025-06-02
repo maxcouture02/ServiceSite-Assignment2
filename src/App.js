@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import BookingPage from './pages/BookingPage';
 import ConfirmationPage from './pages/ConfirmationPage';
-import MyAppointmentsPage from './pages/MyAppointmentsPage'; // Placeholder
+import MyAppointmentsPage from './pages/MyAppointmentsPage';
 import { findServiceById } from './servicesData';
 
 function App() {
   const [bookingDetails, setBookingDetails] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleBookNow = (serviceId, date, time) => {
     const service = findServiceById(serviceId);
@@ -28,6 +29,41 @@ function App() {
   const handleSelectServiceForBooking = (serviceId) => {
     navigate(`/book/${serviceId}`);
   };
+
+  useEffect(() => {
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          scrollObserver.unobserve(entry.target); // Optional: Stop observing once visible
+        }
+      });
+    }, { 
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        // rootMargin: "-50px 0px -50px 0px" // Optional: Adjust viewport bounds
+    });
+
+    // Function to find and observe elements
+    const observeElements = () => {
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll:not(.is-visible)');
+        elementsToAnimate.forEach(el => {
+            scrollObserver.observe(el);
+        });
+    };
+
+    // Initial observation
+    observeElements();
+
+    // Re-observe when the route changes (location.pathname changes)
+    // This is important for SPAs as content is dynamically loaded
+    // A slight delay can help ensure elements are in the DOM after route change
+    const timeoutId = setTimeout(observeElements, 100); // Adjust delay if needed
+
+    return () => {
+      scrollObserver.disconnect(); // Cleanup observer when App unmounts
+      clearTimeout(timeoutId); // Clear timeout on unmount
+    };
+  }, [location.pathname]); // Re-run effect if the pathname (route) changes
 
   return (
     <>

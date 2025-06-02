@@ -20,7 +20,7 @@ const HomePage = ({ onSelectService }) => {
   return (
     <Container>
       {/* Hero Section - Inspired by Jennifer's welcoming feel */}
-      <Row className="my-5 p-4 rounded hero-section align-items-center">
+      <Row className="my-5 p-4 rounded hero-section align-items-center animate-on-scroll">
         <Col md={7}>
           <h1>Fast & Reliable Bike Care</h1>
           <p className="lead">
@@ -37,12 +37,12 @@ const HomePage = ({ onSelectService }) => {
       </Row>
 
       {/* Quick Services - For James */}
-      <Row className="mb-5">
+      <Row className="mb-5 animate-on-scroll">
         <Col>
           <h2 className="mb-4 text-center">Same-Day Repairs? <span className="accent-blue">Book Instantly!</span></h2>
           <Row>
             {quickServices.slice(0, 3).map(service => ( // Show top 3 quick services
-              <Col md={4} key={service.id}>
+              <Col md={4} key={service.id} className="animate-on-scroll">
                 <ServiceCard 
                   service={service} 
                   onBook={handleBookQuickService} 
@@ -55,12 +55,12 @@ const HomePage = ({ onSelectService }) => {
       </Row>
 
       {/* Service Packages - For Jennifer */}
-      <Row className="mb-5">
+      <Row className="mb-5 animate-on-scroll">
         <Col>
           <h2 className="mb-4 text-center">Find the Right Care for Your Bike</h2>
            <Row>
             {servicePackages.map(pkg => (
-              <Col md={4} key={pkg.id}>
+              <Col md={4} key={pkg.id} className="animate-on-scroll">
                 <ServiceCard 
                   service={pkg} 
                   onLearnMore={handleLearnMorePackage} 
