@@ -98,11 +98,11 @@ const BookingPage = ({ onConfirmBooking }) => {
   
   // For Jennifer's persona: filter calendar for weekends if it's a package
   const isWeekendBookingPreferred = service.type === 'package';
-  const dateInputFilter = (dateStr) => {
-    if (!isWeekendBookingPreferred) return true; // No filter if not a package
-    const day = new Date(dateStr + "T00:00:00").getDay(); // Ensure local interpretation
-    return day === 6 || day === 0; // 0 is Sunday, 6 is Saturday
-  };
+//  const dateInputFilter = (dateStr) => {
+//    if (!isWeekendBookingPreferred) return true; // No filter if not a package
+//    const day = new Date(dateStr + "T00:00:00").getDay(); // Ensure local interpretation
+//    return day === 6 || day === 0; // 0 is Sunday, 6 is Saturday
+//  };
 
 
   return (
