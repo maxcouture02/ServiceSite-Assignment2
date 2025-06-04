@@ -96,7 +96,7 @@ const BookingPage = ({ onConfirmBooking }) => {
     return <p>Loading service details...</p>;
   }
   
-  // For Jennifer's persona: filter calendar for weekends if it's a package
+  // Filter calendar for weekends if it's a package
   const isWeekendBookingPreferred = service.type === 'package';
 //  const dateInputFilter = (dateStr) => {
 //    if (!isWeekendBookingPreferred) return true; // No filter if not a package

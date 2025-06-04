@@ -21,10 +21,10 @@ const ConfirmationPage = ({ bookingDetails }) => {
   const formattedTime = time.includes("AM") || time.includes("PM") ? time : new Date(`1970-01-01T${time}:00`).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
 
 
-  const isTuneUp = service.type === 'package'; // Example condition for Jennifer's context
+  const isTuneUp = service.type === 'package'; 
 
   const handleAddToCalendar = () => {
-    // This is a placeholder. Real implementation requires ics file generation or API.
+    // This is a placeholder
     alert('Calendar invite download started (placeholder).');
   };
 
@@ -46,14 +46,13 @@ const ConfirmationPage = ({ bookingDetails }) => {
               <ListGroup.Item><strong>Service:</strong> {service.name}</ListGroup.Item>
               <ListGroup.Item><strong>Date:</strong> {formattedDate}</ListGroup.Item>
               <ListGroup.Item><strong>Time:</strong> {formattedTime}</ListGroup.Item>
-              <ListGroup.Item><strong>Location:</strong> 123 Main St., Suite 4, Cityville</ListGroup.Item>
+              <ListGroup.Item><strong>Location:</strong> 123 Main St., Suite 4, Ottawa</ListGroup.Item>
             </ListGroup>
 
             <Row className="my-4 align-items-center">
                 <Col md={5} className="text-center mb-3 mb-md-0">
                     <img src="/images/map-snippet.png" alt="Shop location map snippet" className="img-fluid map-snippet"/>
                 </Col>
-                {isTuneUp && ( // Jennifer's specific info
                 <Col md={7}>
                     <h5>Drop-Off Instructions:</h5>
                     <ul className="list-unstyled text-start small">
@@ -62,7 +61,6 @@ const ConfirmationPage = ({ bookingDetails }) => {
                         <li><i className="bi bi-hourglass-split text-sage me-2"></i>Estimated service time: {service.duration}.</li>
                     </ul>
                 </Col>
-                )}
             </Row>
 
 
@@ -73,7 +71,7 @@ const ConfirmationPage = ({ bookingDetails }) => {
               View My Appointments
             </Button>
 
-            {isTuneUp && ( // Jennifer's specific link
+            {isTuneUp && (
                 <div className="mt-4">
                     <Link to="/services" className="text-sage">Need a kid’s tune-up too? Click here.</Link>
                 </div>
