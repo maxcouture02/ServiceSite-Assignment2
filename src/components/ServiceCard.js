@@ -7,7 +7,14 @@ const ServiceCard = ({ service, onBook, onLearnMore, isQuickService = false }) =
   return (
     <Card className={`mb-4 service-card ${isQuickService ? 'highlighted' : ''}`} onClick={isQuickService && onBook ? () => onBook(service.id) : null}>
       <Card.Body>
-        {icon && <div className="mb-2">{/* You can use an <img> or an icon component here */} <span role="img" aria-label={name}>🚲</span> </div>}
+        {/* Dynamically import and render the service-specific icon */}
+        {icon && (
+          <img
+            src={require(`../assets/${icon}`)} // Dynamically require the image
+            alt={`${name} icon`}
+            className="service-icon mb-2" // Add this class
+          />
+        )}
         <Card.Title as="h5">{name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">${price}</Card.Subtitle>
         <Card.Text>

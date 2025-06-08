@@ -2,7 +2,7 @@ export const quickServices = [
   {
     id: 'qs1',
     name: 'Flat Tire Replacement',
-    icon: 'tire-icon.svg', // Placeholder for actual icon path or component
+    icon: 'Tire.png', // Updated to match the PNG file in src/assets
     description: 'Fast replacement for your flat tire. Get back on the road quickly.',
     price: 25, // Example price
     duration: 'Approx. 30 mins',
@@ -11,7 +11,7 @@ export const quickServices = [
   {
     id: 'qs2',
     name: 'Brake Adjustment',
-    icon: 'brake-icon.svg',
+    icon: 'Brake.png', // Updated to match the PNG file in src/assets
     description: 'Quick check and adjustment for optimal braking performance.',
     price: 30,
     duration: 'Approx. 20 mins',
@@ -20,7 +20,7 @@ export const quickServices = [
   {
     id: 'qs3',
     name: 'Gear Indexing',
-    icon: 'gear-icon.svg',
+    icon: 'Gear.png', // Updated to match the PNG file in src/assets
     description: 'Smooth out your gear shifting with a quick tune-up.',
     price: 35,
     duration: 'Approx. 25 mins',

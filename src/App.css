@@ -445,3 +445,9 @@ div[onClick*="handleSelectForDetail"].bg-accent-primary p,
 div[onClick*="handleSelectForDetail"].bg-accent-primary strong {
     color: var(--text-light) !important;
 }
+
+.service-icon {
+  max-width: 50px; /* Limit the width */
+  max-height: 50px; /* Limit the height */
+  object-fit: contain; /* Ensure the image scales proportionally */
+}
