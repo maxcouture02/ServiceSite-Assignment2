@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
 import { quickServices, servicePackages } from '../servicesData';
 
-const HomePage = ({ onSelectService }) => {
+const HomePage = ({ onSelectService, onViewPackageDetails }) => {
   const navigate = useNavigate();
 
   const handleBookQuickService = (serviceId) => {
@@ -12,9 +12,7 @@ const HomePage = ({ onSelectService }) => {
   };
 
   const handleLearnMorePackage = (serviceId) => {
-     // For prototype, clicking "Learn More" on homepage can also lead to booking
-     // Or you could have a dedicated Service Detail page
-    onSelectService(serviceId);
+    onViewPackageDetails(serviceId);
   };
 
   return (

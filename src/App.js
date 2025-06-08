@@ -30,6 +30,10 @@ function App() {
     navigate(`/book/${serviceId}`);
   };
 
+  const handleViewPackageDetails = (serviceId) => {
+    navigate('/services', { state: { selectedPackageId: serviceId } });
+  };
+
   useEffect(() => {
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -66,7 +70,7 @@ function App() {
       <Header />
       <main className="container mt-4 mb-5" style={{ minHeight: 'calc(100vh - 200px)' }}> 
         <Routes>
-          <Route path="/" element={<HomePage onSelectService={handleSelectServiceForBooking} />} />
+          <Route path="/" element={<HomePage onSelectService={handleSelectServiceForBooking} onViewPackageDetails={handleViewPackageDetails} />} />
           <Route path="/services" element={<ServicesPage onSelectService={handleSelectServiceForBooking} />} />
           <Route path="/book/:serviceId" element={<BookingPage onConfirmBooking={handleBookNow} />} />
           <Route path="/confirmation" element={bookingDetails ? <ConfirmationPage bookingDetails={bookingDetails} /> : <HomePage />} />

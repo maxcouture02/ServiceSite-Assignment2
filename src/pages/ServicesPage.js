@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 import { quickServices, servicePackages, findServiceById } from '../servicesData';
 import PackageDetail from '../components/PackageDetail'; // For showing details
+import { useLocation } from 'react-router-dom';
 
 const ServicesPage = ({ onSelectService }) => {
-  const [selectedServiceId, setSelectedServiceId] = useState(servicePackages[0]?.id || null); // Default to first package
+  const location = useLocation();
+  const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [activeTab, setActiveTab] = useState('packages'); // 'packages' or 'quick'
+
+  useEffect(() => {
+    // Set the selected package from navigation state if it exists
+    if (location.state?.selectedPackageId) {
+      setSelectedServiceId(location.state.selectedPackageId);
+      setActiveTab('packages');
+    } else {
+      setSelectedServiceId(servicePackages[0]?.id || null);
+    }
+  }, [location.state]);
 
   const currentService = findServiceById(selectedServiceId);
 
