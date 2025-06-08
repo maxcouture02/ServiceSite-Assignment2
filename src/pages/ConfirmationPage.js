@@ -24,7 +24,7 @@ const ConfirmationPage = ({ bookingDetails }) => {
   const isTuneUp = service.type === 'package'; 
 
   const handleAddToCalendar = () => {
-    // This is a placeholder
+    // placeholder
     alert('Calendar invite download started (placeholder).');
   };
 

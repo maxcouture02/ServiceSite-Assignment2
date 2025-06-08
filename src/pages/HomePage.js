@@ -19,12 +19,12 @@ const HomePage = ({ onSelectService }) => {
 
   return (
     <Container>
-      {/* Hero Section - Inspired by Jennifer's welcoming feel */}
+      {/* Hero Section */}
        <Row 
         className="my-5 p-sm-2 p-md-4 rounded hero-section align-items-center animate-on-scroll"
         // style={{ backgroundImage: `url(/images/hero-background.jpg)` }} // Assuming this is in App.css now
       >
-        <Col md={7} className="hero-text-content mb-4 mb-md-0"> {/* Added a class for easier targeting if needed */}
+        <Col md={7} className="hero-text-content mb-4 mb-md-0">
           <div className="hero-content-wrapper p-4"> {/* Frosted glass for text */}
             <h1 className="mb-3">Fast & Reliable Bike Care</h1>
             <p className="lead mb-4">
@@ -32,7 +32,7 @@ const HomePage = ({ onSelectService }) => {
             </p>
             <Button variant="primary" className="btn-lg" onClick={() => navigate('/services')}>
               Explore All Services
-            </Button> {/* Removed btn-accent-blue if hero button style is different */}
+            </Button>
           </div>
         </Col>
 
@@ -49,7 +49,7 @@ const HomePage = ({ onSelectService }) => {
         </Col>
       </Row>
 
-      {/* Quick Services - For James */}
+      {/* Quick Services */}
       <Row className="mb-5 animate-on-scroll">
         <Col>
           <h2 className="mb-4 text-center">Same-Day Repairs? <span className="accent-blue">Book Instantly!</span></h2>
@@ -67,7 +67,7 @@ const HomePage = ({ onSelectService }) => {
         </Col>
       </Row>
 
-      {/* Service Packages - For Jennifer */}
+      {/* Service Packages */}
       <Row className="mb-5 animate-on-scroll">
         <Col>
           <h2 className="mb-4 text-center">Find the Right Care for Your Bike</h2>

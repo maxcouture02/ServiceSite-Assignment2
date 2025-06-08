@@ -35,12 +35,11 @@ function App() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          scrollObserver.unobserve(entry.target); // Optional: Stop observing once visible
+          scrollObserver.unobserve(entry.target); // Stop observing once visible, to not replay animations
         }
       });
     }, { 
         threshold: 0.1, // Trigger when 10% of the element is visible
-        // rootMargin: "-50px 0px -50px 0px" // Optional: Adjust viewport bounds
     });
 
     // Function to find and observe elements
@@ -54,10 +53,7 @@ function App() {
     // Initial observation
     observeElements();
 
-    // Re-observe when the route changes (location.pathname changes)
-    // This is important for SPAs as content is dynamically loaded
-    // A slight delay can help ensure elements are in the DOM after route change
-    const timeoutId = setTimeout(observeElements, 100); // Adjust delay if needed
+    const timeoutId = setTimeout(observeElements, 100); 
 
     return () => {
       scrollObserver.disconnect(); // Cleanup observer when App unmounts
@@ -68,7 +64,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="container mt-4 mb-5" style={{ minHeight: 'calc(100vh - 200px)' }}> {/* Adjust minHeight based on header/footer */}
+      <main className="container mt-4 mb-5" style={{ minHeight: 'calc(100vh - 200px)' }}> 
         <Routes>
           <Route path="/" element={<HomePage onSelectService={handleSelectServiceForBooking} />} />
           <Route path="/services" element={<ServicesPage onSelectService={handleSelectServiceForBooking} />} />

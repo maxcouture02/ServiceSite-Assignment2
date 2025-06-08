@@ -33,7 +33,7 @@ const ServicesPage = ({ onSelectService }) => {
             {servicePackages.map(pkg => (
               <div 
                 key={pkg.id} 
-                className={`p-3 mb-2 rounded package-list-item ${selectedServiceId === pkg.id ? 'selected' : ''}`} // UPDATED LINE
+                className={`p-3 mb-2 rounded package-list-item ${selectedServiceId === pkg.id ? 'selected' : ''}`}
                 onClick={() => handleSelectForDetail(pkg.id)}
                 style={{cursor: 'pointer'}}
               >
@@ -58,14 +58,12 @@ const ServicesPage = ({ onSelectService }) => {
           <h4 className="mb-3">Quick & Same-Day Services</h4>
           <Row>
           {quickServices.map(service => (
-            <Col md={6} lg={4} key={service.id} className="mb-3 d-flex"> {/* Added d-flex for consistent card heights if using Bootstrap's flex utilities */}
-              {/* UPDATED LINE BELOW - added 'quick-service-item-card' and removed h-100 from here to be controlled by CSS */}
+            <Col md={6} lg={4} key={service.id} className="mb-3 d-flex"> {/*  d-flex for consistent card heights */}
               <div className="card quick-service-item-card"> 
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{service.name}</h5>
                   <p className="card-text flex-grow-1">{service.description}</p>
                   <p className="card-text"><strong>Price: ${service.price}</strong> | Duration: {service.duration}</p>
-                  {/* Ensure this button uses the class targeted by CSS, e.g., btn-accent-primary or btn-primary if globally styled */}
                   <button className="btn btn-accent-primary mt-auto" onClick={() => onSelectService(service.id)}>
                     Book Now
                   </button>

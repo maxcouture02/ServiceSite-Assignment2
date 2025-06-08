@@ -43,7 +43,6 @@ const generateTimeSlots = (serviceDate) => {
         }
     }
   });
-  // Sort and unique
   return [...new Set(slots.sort((a,b) => parseInt(a) - parseInt(b)))];
 };
 

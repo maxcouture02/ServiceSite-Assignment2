@@ -10,9 +10,9 @@ const ServiceCard = ({ service, onBook, onLearnMore, isQuickService = false }) =
         {/* Dynamically import and render the service-specific icon */}
         {icon && (
           <img
-            src={require(`../assets/${icon}`)} // Dynamically require the image
+            src={require(`../assets/${icon}`)}
             alt={`${name} icon`}
-            className="service-icon mb-2" // Add this class
+            className="service-icon mb-2"
           />
         )}
         <Card.Title as="h5">{name}</Card.Title>

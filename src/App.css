@@ -1,11 +1,10 @@
-/* Global Styles & Theme with Logo Colors */
 :root {
   --logo-dark-teal: #0B4F6C;
   --logo-light-teal: #01BAEF;
   --logo-light-teal-rgb: 107, 173, 225;
   --logo-orange: #FF7F00;
   --logo-yellow: #FFC800;
-  --global-bg: #FDFEFF; /* Very light, slightly cool off-white */
+  --global-bg: #FDFEFF; 
   --text-dark: #212529;
   --text-light: #FFFFFF;
   --border-light: #DEE2E6;
@@ -45,7 +44,7 @@ body {
 .bg-accent-secondary {
   background-color: var(--logo-orange) !important;
   border-color: var(--logo-orange) !important;
-  color: var(--text-light) !important; /* Orange can sometimes take dark text too, but light for consistency */
+  color: var(--text-light) !important;
 }
 .btn-accent-secondary {
   background-color: var(--logo-orange);
@@ -77,7 +76,7 @@ body {
 
 /* Header */
 .navbar-brand-logo {
-  height: 40px; /* Adjust as needed */
+  height: 40px;
   margin-right: 10px;
 }
 .navbar-brand-logo:hover {
@@ -115,7 +114,7 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #07374B; /* A slightly darker shade of the dark teal for footer */
+  background-color: #07374B; 
   color: #EAEAEA; /* Light grey text for footer */
   padding: 2rem 0;
   font-size: 0.9rem;
@@ -175,24 +174,20 @@ body {
 }
 
 .quick-service-item-card:hover,
-.quick-service-item-card:focus-within { /* focus-within is great for when the button inside is focused */
+.quick-service-item-card:focus-within {
   background-color: var(--quick-service-card-hover-bg);
   border-color: var(--quick-service-card-hover-border);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
 .quick-service-item-card .card-title {
   color: var(--logo-dark-teal);
 }
-
-/* Button styling within these quick service cards */
-.quick-service-item-card .btn-accent-primary { /* Target the specific primary button style we are using */
+.quick-service-item-card .btn-accent-primary { 
   background-color: var(--logo-dark-teal);
   border-color: var(--logo-dark-teal);
   color: var(--text-light);
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
-
 .quick-service-item-card:hover .btn-accent-primary,
 .quick-service-item-card .btn-accent-primary:hover,
 .quick-service-item-card .btn-accent-primary:focus {
@@ -202,29 +197,29 @@ body {
 }
 
 /* Styling for the clickable package list items on ServicesPage */
-.package-list-item { /* Add a new base class for these items */
-  background-color: var(--text-light); /* Default background for non-selected */
-  border: 1px solid var(--border-light); /* Default border */
-  color: var(--text-dark); /* Default text color */
+.package-list-item {
+  background-color: var(--text-light);
+  border: 1px solid var(--border-light); 
+  color: var(--text-dark);
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; /* Smooth transitions */
 }
 
 .package-list-item:hover {
-  background-color: #f0f8ff; /* Light hover, AliceBlue or similar */
+  background-color: #f0f8ff; 
   border-color: var(--logo-light-teal);
 }
 
-.package-list-item.selected { /* New class for the selected state */
-  background-color: var(--logo-dark-teal) !important; /* Dark teal background */
-  color: var(--text-light) !important; /* White text */
-  border: 1px solid var(--selected-package-border) !important; /* Orange border for selected */
-  box-shadow: 0 0 0 2px var(--selected-package-border); /* Optional: extra glow effect */
+.package-list-item.selected {
+  background-color: var(--logo-dark-teal) !important; 
+  color: var(--text-light) !important; 
+  border: 1px solid var(--selected-package-border) !important; 
+  box-shadow: 0 0 0 2px var(--selected-package-border); /* glow effect */
 }
 
 /* Ensure text elements within the selected package list item are also light */
 .package-list-item.selected h5,
 .package-list-item.selected p,
-.package-list-item.selected small, /* Target small specifically */
+.package-list-item.selected small,
 .package-list-item.selected strong {
   color: var(--text-light) !important;
 }
@@ -235,7 +230,7 @@ body {
   margin: 5px;
   border: 1px solid var(--logo-dark-teal);
   color: var(--logo-dark-teal);
-  background-color: var(--text-light); /* Ensure it's not transparent */
+  background-color: var(--text-light); 
 }
 .time-slot-btn.active, .time-slot-btn:active {
   background-color: var(--logo-dark-teal);
@@ -249,7 +244,7 @@ body {
 .form-control:focus, 
 .calendar-container input[type="date"]:focus {
     border-color: var(--logo-orange);
-    box-shadow: 0 0 0 0.25rem rgba(var(--logo-orange-rgb, 255, 127, 0), 0.3); /* Define --logo-orange-rgb */
+    box-shadow: 0 0 0 0.25rem rgba(var(--logo-orange-rgb, 255, 127, 0), 0.3); 
 }
 .calendar-container input[type="date"] {
   padding: 0.375rem 0.75rem;
@@ -267,7 +262,7 @@ body {
   border-top: 5px solid var(--logo-orange); /* Orange top border for confirmation */
 }
 .confirmation-card h2 {
-  color: var(--logo-dark-teal); /* Dark Teal for "Booking Confirmed!" */
+  color: var(--logo-dark-teal); 
 }
 .confirmation-card .bi-check-circle-fill { /* Green checkmark */
     fill: #28a745;
@@ -286,8 +281,8 @@ body {
   font-weight: 500;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-/* Primary button for general CTAs */
-.btn-primary { /* Overriding Bootstrap's default blue */
+/* Primary button */
+.btn-primary {
     background-color: var(--logo-dark-teal);
     border-color: var(--logo-dark-teal);
     color: var(--text-light);
@@ -297,8 +292,8 @@ body {
     border-color: #083E54;
     color: var(--text-light);
 }
-/* Secondary button style (e.g., "View My Appointments" on confirmation) */
-.btn-outline-secondary.text-highlight { /* To make it clearer it's a different style */
+/* Secondary button style */
+.btn-outline-secondary.text-highlight { 
     color: var(--logo-light-teal);
     border-color: var(--logo-light-teal);
 }
@@ -308,44 +303,42 @@ body {
 }
 
 
-/* Placeholder for bike details */
 .bike-details-placeholder {
   border: 1px dashed var(--logo-light-teal); 
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
-  background-color: #E0F7FA; /* Very light teal background */
+  background-color: #E0F7FA;
 }
 .bike-details-placeholder h5 {
   color: var(--logo-dark-teal); 
 }
 
 /* Hero Section */
-.hero-content-wrapper { /* This div would sit inside .hero-section */
+.hero-content-wrapper { 
     position: relative;
     z-index: 2;
     padding: 2rem;
     background-color: rgba(255, 255, 255, 0.1); /* Very subtle light background for the wrapper */
     backdrop-filter: blur(8px) saturate(120%); /* Adjust blur and saturate values */
     -webkit-backdrop-filter: blur(8px) saturate(120%); /* For Safari */
-    border-radius: 0.25rem; /* Optional rounded corners for the content area */
+    border-radius: 0.25rem; /* Rounded corners for the content area */
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
     border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
 }
 
 .hero-section {
-    /* background-color: #E9F1F4; */ /* Remove or comment out old background-color */
-    padding: 4rem 1.5rem; /* Increased padding for more space */
+    padding: 4rem 1.5rem; 
     margin-bottom: 2rem;
     border-radius: 0.3rem;
     position: relative; /* Needed for the ::before pseudo-element overlay */
-    background-image: url('/images/hero-background.jpg'); /* <<< YOUR IMAGE PATH HERE */
+    background-image: url('/images/hero-background.jpg'); 
     background-size: cover; /* Cover the entire area */
     background-position: center center; /* Center the image */
     background-repeat: no-repeat;
-    color: var(--text-light); /* Change default text color in hero to light for dark overlays */
+    color: var(--text-light); 
     overflow: hidden; /* Ensure pseudo-element doesn't overflow if it has rounded corners */
-    display: flex; /* To center the content wrapper perhaps */
+    display: flex; /* To center the content wrapper */
     align-items: center;
     justify-content: center;
 }
@@ -358,32 +351,29 @@ body {
     right: 0;
     bottom: 0;
     background-color: rgba(var(--logo-light-teal-rgb, 11, 79, 108), 0.65); /* Dark Teal overlay with 65% opacity */
-    /* Or a darker generic overlay: background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
     border-radius: inherit; /* Inherit border-radius from parent .hero-section */
     z-index: 1; /* Place overlay above background image but below content */
 }
 
 /* Ensure content (text, buttons) is above the overlay */
-.hero-section > * { /* Target direct children */
+.hero-section > * {
     position: relative;
     z-index: 2;
 }
 
 .hero-section h1, .hero-section .lead {
-  color: var(--text-light); /* Text might be dark again if the frosted area is light enough */
-  /* Or keep light text if the backdrop is still generally dark */
+  color: var(--text-light); 
 }
 
 .hero-section .lead {
-    /* color: #3A506B; */ /* Old color */
-    color: #EAEAEA; /* Light gray or off-white for lead text */
-    font-weight: 400; /* Ensure it's not too bold if the heading is very bold */
+    color: #EAEAEA;
+    font-weight: 400; 
 }
 
 .hero-section .btn-primary { /* Hero button - ensure it stands out */
     background-color: var(--logo-orange);
     border-color: var(--logo-orange);
-    color: var(--text-light); /* Or var(--text-dark) if orange is light enough */
+    color: var(--text-light);
 }
 .hero-section .btn-primary:hover {
     background-color: #E07000;
@@ -393,17 +383,17 @@ body {
 
 /* Package Detail specific (ServicesPage) */
 .package-detail-card {
-    border-left: 5px solid var(--logo-orange); /* Orange accent for the detail card */
+    border-left: 5px solid var(--logo-orange); 
 }
 .package-detail-card .card-header {
-    background-color: var(--logo-dark-teal); /* Dark teal header for package detail */
+    background-color: var(--logo-dark-teal); 
     color: var(--text-light);
 }
 .package-detail-card h5.accent-secondary { /* Price */
     color: var(--logo-orange) !important; 
     font-weight: bold;
 }
-.package-detail-card .text-highlight { /* For the "Saturday & Sunday slots..." note */
+.package-detail-card .text-highlight { 
     color: var(--logo-light-teal) !important;
 }
 
@@ -427,9 +417,8 @@ body {
     opacity: 0;
     transform: translateY(30px); /* Start slightly lower */
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    transition-delay: 0.1s; /* Optional: slight delay before animation starts */
+    transition-delay: 0.1s; 
 }
-
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
